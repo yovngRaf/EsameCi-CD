@@ -1,3 +1,4 @@
+// app.js
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 
@@ -14,38 +15,6 @@ let libri = [
         quantita: 5,
         prezzo: 10.99,
         autore: 'F. Scott Fitzgerald'
-    },
-    {
-        codice: uuidv4(),
-        nome: 'Don Chisciotte',
-        descrizione: 'Un romanzo di Miguel de Cervantes',
-        quantita: 1,
-        prezzo: 16.99,
-        autore: 'Miguel de Cervantes'
-    },
-    {   
-        codice: uuidv4(),
-        nome: 'Il Gattopardo',
-        descrizione: 'Un romanzo di Giuseppe Tomasi di Lampedusa',
-        quantita: 2,
-        prezzo: 14.99,
-        autore: 'Giuseppe Tomasi di Lampedusa'
-    },
-    {
-        codice: uuidv4(),
-        nome: 'La Coscienza di Zeno',
-        descrizione: 'Un romanzo di Italo Svevo',
-        quantita: 2,
-        prezzo: 11.99,
-        autore: 'Italo Svevo'
-    },
-    {
-        codice: uuidv4(),
-        nome: 'Il Nome della Rosa',
-        descrizione: 'Un romanzo di Umberto Eco',
-        quantita: 1,
-        prezzo: 15.99,
-        autore: 'Umberto Eco'
     },
     {
         codice: uuidv4(),

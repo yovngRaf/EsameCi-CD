@@ -1,16 +1,17 @@
 {
-  "name": "bookmanager",
+  "name": "esameci-cd",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^4.21.1",
+    "install": "^0.13.0",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
