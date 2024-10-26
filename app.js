@@ -18,6 +18,30 @@ let libri = [
     },
     {
         codice: uuidv4(),
+        nome: 'Il Grande Paolo',
+        descrizione: 'Un romanzo di Gino',
+        quantita: 12,
+        prezzo: 163,
+        autore: 'F. Scott Fitzgerald'
+    },
+    {
+        codice: uuidv4(),
+        nome: 'Le Storie di Arnautovic',
+        descrizione: 'S. Inzaghi',
+        quantita: 10,
+        prezzo: 104,
+        autore: 'F. Scott Fitzgerald'
+    },
+    {
+        codice: uuidv4(),
+        nome: 'Gennarino e le storielle di Pulcinella',
+        descrizione: 'Storia triste',
+        quantita: 4,
+        prezzo: 19.99,
+        autore: 'Sebastiano'
+    },
+    {
+        codice: uuidv4(),
         nome: '1984',
         descrizione: 'Un romanzo di George Orwell',
         quantita: 3,
