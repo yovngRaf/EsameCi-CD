@@ -1,47 +1,53 @@
-name: Node.js test 
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [ 14.x , 16.x ]  # Usa entrambe le versioni
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Usa Node.js in versione ${{ matrix.node-version }}
-        uses: actions/setup-node@v1  # Usa la versione v1
+      - name: Clona la repository
+        uses: actions/checkout@v2
+
+      - name: Imposta Node.JS
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build --if-present
-      - run: npm test
+          node-version: '20'
+
+      - name: Installa le dipendenze
+        run: npm install
+
+      - name: Esegui i test
+        run: npm test
+
+      - name: Esegui la build dell'eseguibile
+        run: npm run build --if-present
 
   docker-build-and-push:
-    needs: build
+    needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'  # Aggiungi questa condizione
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: LogIn sul DockerHub
-        uses: docker/login-action@v1  # Usa la versione v1
+      - name: Effettua il Login su Docker Hub
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build e Push dell'Immagine
+      - name: Builda e pusha l'immagine su Docker Hub
         uses: docker/build-push-action@v2
         with:
-          context: .  
+          context: .
           file: Dockerfile
           push: true
-          tags: raf593/libri-api 
+          tags: ${{ secrets.DOCKER_USERNAME }}/libri-api:latest
