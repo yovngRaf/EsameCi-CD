@@ -1,4 +1,4 @@
-name: ci-cd test 
+name: Node.js test 
 
 on:
   push:
@@ -44,4 +44,4 @@ jobs:
           context: .  
           file: Dockerfile
           push: true
-          tags: raf593/libri-api
+          tags: raf593/libri-api 
