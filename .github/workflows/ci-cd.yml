@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: ci-cd
 
 on:
   push:
@@ -50,4 +50,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/raf593/libri-api:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/libri-api:latest
