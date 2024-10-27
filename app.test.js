@@ -2,7 +2,7 @@ const request = require('supertest');
 const { app, server } = require('./app');
 
 beforeAll((done) => {
-    // Il server è già avviato in app.js, non serve avviarlo di nuovo
+    
     done();
 });
 
@@ -17,7 +17,7 @@ describe('Test degli endpoint dell\'API libri', () => {
     it('La GET /api/libri dovrebbe restituire tutti i libri', async () => {
         const response = await request(app).get('/api/libri');
         expect(response.statusCode).toBe(200);
-        expect(response.body.length).toBeGreaterThan(0); // Verifica che ci siano libri
+        expect(response.body.length).toBeGreaterThan(0); 
     });
 
     it('La POST /api/libri dovrebbe aggiungere un nuovo libro', async () => {
@@ -83,7 +83,7 @@ describe('Test degli endpoint dell\'API libri', () => {
 
         const incrementResponse = await request(app).get(`/api/libri/${codice}/incrementa`);
         expect(incrementResponse.statusCode).toBe(200);
-        expect(incrementResponse.body.quantita).toBe(3); // Verifica che la quantità sia aumentata
+        expect(incrementResponse.body.quantita).toBe(3); 
     });
 
     it('La GET /api/libri/:codice/decrementa dovrebbe decrementare la quantità del libro', async () => {
@@ -98,6 +98,6 @@ describe('Test degli endpoint dell\'API libri', () => {
 
         const decrementResponse = await request(app).get(`/api/libri/${codice}/decrementa`);
         expect(decrementResponse.statusCode).toBe(200);
-        expect(decrementResponse.body.quantita).toBe(1); // Verifica che la quantità sia diminuita
+        expect(decrementResponse.body.quantita).toBe(1); 
     });
 });

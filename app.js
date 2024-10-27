@@ -22,15 +22,15 @@ let libri = [
         descrizione: 'Un romanzo di Gino',
         quantita: 12,
         prezzo: 163,
-        autore: 'F. Scott Fitzgerald'
+        autore: 'Gino'
     },
     {
         codice: uuidv4(),
         nome: 'Le Storie di Arnautovic',
-        descrizione: 'S. Inzaghi',
+        descrizione: 'Romanzo triste',
         quantita: 10,
         prezzo: 104,
-        autore: 'F. Scott Fitzgerald'
+        autore: 'S. Inzaghi'
     },
     {
         codice: uuidv4(),
